@@ -170,7 +170,7 @@ Una sezione che potrebbe sembrare ovvia, ma che ha una logica precisa. Il vademe
 
 ### Documenti utili: la memoria istituzionale
 
-I documenti ufficiali esistono — ordinanze, delibere, piani d'emergenza, richieste di stato di emergenza nazionale — ma sono sparsi su portali diversi, con URL instabili e format non indicizzabili. Questa sezione li raccoglie, li nomina in modo comprensibile, e li rende scaricabili con un click.
+I documenti ufficiali esistono — ordinanze, delibere, piani d'emergenza, richieste di stato di emergenza nazionale — ma sono sparsi su portali diversi, con URL instabili e formati non indicizzabili. Questa sezione li raccoglie, li nomina in modo comprensibile, e li rende scaricabili con un click.
 
 ![Archivio documenti ufficiali](assets/screen_documenti.png)
 
