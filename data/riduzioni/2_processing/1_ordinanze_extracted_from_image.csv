@@ -1,0 +1,384 @@
+﻿comune,codice_istat,provincia,sigla_prov,pixel_blu,frac_blu,ha_ordinanza,ordinanza_str
+Alcamo,081001,Trapani,TP,22734,0.6934,True,Sì
+Buseto Palizzolo,081002,Trapani,TP,750,0.041,False,No
+Calatafimi-Segesta,081003,Trapani,TP,1581,0.0411,False,No
+Campobello di Mazara,081004,Trapani,TP,11113,0.6794,True,Sì
+Castellammare del Golfo,081005,Trapani,TP,22914,0.7211,True,Sì
+Castelvetrano,081006,Trapani,TP,30352,0.5838,True,Sì
+Custonaci,081007,Trapani,TP,12156,0.6858,True,Sì
+Erice,081008,Trapani,TP,8702,0.714,True,Sì
+Gibellina,081010,Trapani,TP,7965,0.6853,True,Sì
+Marsala,081011,Trapani,TP,48859,0.8067,True,Sì
+Mazara del Vallo,081012,Trapani,TP,59384,0.8698,True,Sì
+Paceco,081013,Trapani,TP,2021,0.1399,False,No
+Partanna,081015,Trapani,TP,1316,0.0637,False,No
+Poggioreale,081016,Trapani,TP,0,0.0,False,No
+Salaparuta,081017,Trapani,TP,5752,0.5561,True,Sì
+Salemi,081018,Trapani,TP,980,0.0216,False,No
+Santa Ninfa,081019,Trapani,TP,1412,0.0924,False,No
+San Vito Lo Capo,081020,Trapani,TP,11470,0.7559,True,Sì
+Trapani,081021,Trapani,TP,32347,0.7204,True,Sì
+Valderice,081022,Trapani,TP,8770,0.678,True,Sì
+Vita,081023,Trapani,TP,60,0.0249,False,No
+Petrosino,081024,Trapani,TP,9073,0.8112,True,Sì
+Alia,082001,Palermo,PA,303,0.0264,False,No
+Alimena,082002,Palermo,PA,1812,0.1206,False,No
+Aliminusa,082003,Palermo,PA,976,0.2875,False,No
+Altavilla Milicia,082004,Palermo,PA,0,0.0,False,No
+Altofonte,082005,Palermo,PA,213,0.0238,False,No
+Bagheria,082006,Palermo,PA,5178,0.6836,True,Sì
+Balestrate,082007,Palermo,PA,0,0.0,False,No
+Baucina,082008,Palermo,PA,0,0.0,False,No
+Belmonte Mezzagno,082009,Palermo,PA,472,0.0635,False,No
+Bisacquino,082010,Palermo,PA,10715,0.6519,True,Sì
+Bolognetta,082011,Palermo,PA,0,0.0,False,No
+Bompietro,082012,Palermo,PA,7206,0.6707,True,Sì
+Borgetto,082013,Palermo,PA,3022,0.4636,True,Sì
+Caccamo,082014,Palermo,PA,759,0.0162,False,No
+Caltavuturo,082015,Palermo,PA,16925,0.697,True,Sì
+Campofelice di Fitalia,082016,Palermo,PA,400,0.046,False,No
+Campofelice di Roccella,082017,Palermo,PA,2204,0.6042,True,Sì
+Campofiorito,082018,Palermo,PA,2354,0.4184,True,Sì
+Camporeale,082019,Palermo,PA,6356,0.647,True,Sì
+Capaci,082020,Palermo,PA,68,0.0414,False,No
+Carini,082021,Palermo,PA,127,0.0066,False,No
+Castelbuono,082022,Palermo,PA,12909,0.8508,True,Sì
+Casteldaccia,082023,Palermo,PA,146,0.017,False,No
+Castellana Sicula,082024,Palermo,PA,0,0.0,False,No
+Castronovo di Sicilia,082025,Palermo,PA,1277,0.0256,False,No
+Cefalà Diana,082026,Palermo,PA,0,0.0,False,No
+Cefalù,082027,Palermo,PA,53,0.0033,False,No
+Cerda,082028,Palermo,PA,8009,0.7278,True,Sì
+Chiusa Sclafani,082029,Palermo,PA,1786,0.123,False,No
+Ciminna,082030,Palermo,PA,0,0.0,False,No
+Cinisi,082031,Palermo,PA,6515,0.7754,True,Sì
+Collesano,082032,Palermo,PA,20246,0.75,True,Sì
+Contessa Entellina,082033,Palermo,PA,2066,0.0612,False,No
+Corleone,082034,Palermo,PA,706,0.0124,False,No
+Ficarazzi,082035,Palermo,PA,2,0.0022,False,No
+Gangi,082036,Palermo,PA,971,0.0306,False,No
+Geraci Siculo,082037,Palermo,PA,22066,0.7799,True,Sì
+Giardinello,082038,Palermo,PA,117,0.036,False,No
+Giuliana,082039,Palermo,PA,80,0.0132,False,No
+Godrano,082040,Palermo,PA,0,0.0,False,No
+Gratteri,082041,Palermo,PA,0,0.0,False,No
+Isnello,082042,Palermo,PA,7295,0.5724,True,Sì
+Isola delle Femmine,082043,Palermo,PA,514,0.5503,True,Sì
+Lascari,082044,Palermo,PA,0,0.0,False,No
+Lercara Friddi,082045,Palermo,PA,6490,0.6919,True,Sì
+Marineo,082046,Palermo,PA,0,0.0,False,No
+Mezzojuso,082047,Palermo,PA,0,0.0,False,No
+Misilmeri,082048,Palermo,PA,415,0.0238,False,No
+Monreale,082049,Palermo,PA,2197,0.0167,False,No
+Montelepre,082050,Palermo,PA,1436,0.5226,True,Sì
+Montemaggiore Belsito,082051,Palermo,PA,4779,0.5899,True,Sì
+Palazzo Adriano,082052,Palermo,PA,20104,0.6201,True,Sì
+Palermo,082053,Palermo,PA,27937,0.7004,True,Sì
+Partinico,082054,Palermo,PA,131,0.0049,False,No
+Petralia Soprana,082055,Palermo,PA,11168,0.8051,True,Sì
+Petralia Sottana,082056,Palermo,PA,1348,0.0303,False,No
+Piana degli Albanesi,082057,Palermo,PA,0,0.0,False,No
+Polizzi Generosa,082058,Palermo,PA,1015,0.0298,False,No
+Pollina,082059,Palermo,PA,127,0.01,False,No
+Prizzi,082060,Palermo,PA,1203,0.0509,False,No
+Roccamena,082061,Palermo,PA,0,0.0,False,No
+Roccapalumba,082062,Palermo,PA,43,0.0054,False,No
+San Cipirello,082063,Palermo,PA,0,0.0,False,No
+San Giuseppe Jato,082064,Palermo,PA,0,0.0,False,No
+San Mauro Castelverde,082065,Palermo,PA,22196,0.78,True,Sì
+Santa Cristina Gela,082066,Palermo,PA,0,0.0,False,No
+Santa Flavia,082067,Palermo,PA,1948,0.5282,True,Sì
+Sciara,082068,Palermo,PA,4220,0.539,True,Sì
+Sclafani Bagni,082069,Palermo,PA,3075,0.0902,False,No
+Termini Imerese,082070,Palermo,PA,458,0.0241,False,No
+Terrasini,082071,Palermo,PA,3106,0.6081,True,Sì
+Torretta,082072,Palermo,PA,143,0.0216,False,No
+Trabia,082073,Palermo,PA,0,0.0,False,No
+Trappeto,082074,Palermo,PA,7,0.0066,False,No
+Valledolmo,082076,Palermo,PA,0,0.0,False,No
+Ventimiglia di Sicilia,082077,Palermo,PA,0,0.0,False,No
+Vicari,082078,Palermo,PA,12355,0.5741,True,Sì
+Villabate,082079,Palermo,PA,95,0.0899,False,No
+Villafrati,082080,Palermo,PA,0,0.0,False,No
+Scillato,082081,Palermo,PA,1245,0.1566,False,No
+Blufi,082082,Palermo,PA,711,0.1271,False,No
+Alcara li Fusi,083001,Messina,ME,683,0.0433,False,No
+Alì,083002,Messina,ME,2163,0.5281,True,Sì
+Alì Terme,083003,Messina,ME,1192,0.7559,True,Sì
+Antillo,083004,Messina,ME,1,0.0001,False,No
+Barcellona Pozzo di Gotto,083005,Messina,ME,10523,0.7098,True,Sì
+Basicò,083006,Messina,ME,0,0.0,False,No
+Brolo,083007,Messina,ME,4,0.0021,False,No
+Capizzi,083008,Messina,ME,11077,0.6325,True,Sì
+Capo d'Orlando,083009,Messina,ME,0,0.0,False,No
+Capri Leone,083010,Messina,ME,0,0.0,False,No
+Caronia,083011,Messina,ME,113,0.002,False,No
+Casalvecchio Siculo,083012,Messina,ME,10,0.0012,False,No
+Castel di Lucio,083013,Messina,ME,90,0.0123,False,No
+Castell'Umberto,083014,Messina,ME,2553,0.8743,True,Sì
+Castelmola,083015,Messina,ME,1,0.0002,False,No
+Castroreale,083016,Messina,ME,47,0.0036,False,No
+Cesarò,083017,Messina,ME,40203,0.744,True,Sì
+Condrò,083018,Messina,ME,615,0.4583,True,Sì
+Falcone,083019,Messina,ME,0,0.0,False,No
+Ficarra,083020,Messina,ME,3300,0.6968,True,Sì
+Fiumedinisi,083021,Messina,ME,8,0.0009,False,No
+Floresta,083022,Messina,ME,6007,0.7649,True,Sì
+Fondachelli-Fantina,083023,Messina,ME,0,0.0,False,No
+Forza d'Agrò,083024,Messina,ME,1923,0.6672,True,Sì
+Francavilla di Sicilia,083025,Messina,ME,15892,0.7785,True,Sì
+Frazzanò,083026,Messina,ME,81,0.0475,False,No
+Furci Siculo,083027,Messina,ME,2059,0.4476,True,Sì
+Furnari,083028,Messina,ME,0,0.0,False,No
+Gaggi,083029,Messina,ME,7,0.0036,False,No
+Galati Mamertino,083030,Messina,ME,7876,0.7944,True,Sì
+Gallodoro,083031,Messina,ME,8,0.0046,False,No
+Giardini-Naxos,083032,Messina,ME,742,0.5783,True,Sì
+Gioiosa Marea,083033,Messina,ME,0,0.0,False,No
+Graniti,083034,Messina,ME,8,0.0031,False,No
+Gualtieri Sicaminò,083035,Messina,ME,2662,0.7378,True,Sì
+Itala,083036,Messina,ME,2210,0.7695,True,Sì
+Letojanni,083038,Messina,ME,0,0.0,False,No
+Librizzi,083039,Messina,ME,2326,0.3916,True,Sì
+Limina,083040,Messina,ME,0,0.0,False,No
+Longi,083042,Messina,ME,389,0.0368,False,No
+Malvagna,083044,Messina,ME,144,0.0879,False,No
+Mandanici,083045,Messina,ME,11,0.0036,False,No
+Mazzarrà Sant'Andrea,083046,Messina,ME,0,0.0,False,No
+Merì,083047,Messina,ME,8,0.0174,False,No
+Messina,083048,Messina,ME,41117,0.7733,True,Sì
+Milazzo,083049,Messina,ME,2,0.0003,False,No
+Militello Rosmarino,083050,Messina,ME,4429,0.5859,True,Sì
+Mirto,083051,Messina,ME,464,0.194,False,No
+Mistretta,083052,Messina,ME,280,0.0089,False,No
+Moio Alcantara,083053,Messina,ME,0,0.0,False,No
+Monforte San Giorgio,083054,Messina,ME,4061,0.4903,True,Sì
+Mongiuffi Melia,083055,Messina,ME,3420,0.566,True,Sì
+Montagnareale,083056,Messina,ME,225,0.0533,False,No
+Montalbano Elicona,083057,Messina,ME,137,0.0082,False,No
+Motta Camastra,083058,Messina,ME,27,0.0042,False,No
+Motta d'Affermo,083059,Messina,ME,240,0.0647,False,No
+Naso,083060,Messina,ME,5608,0.6094,True,Sì
+Nizza di Sicilia,083061,Messina,ME,0,0.0,False,No
+Novara di Sicilia,083062,Messina,ME,0,0.0,False,No
+Oliveri,083063,Messina,ME,57,0.0223,False,No
+Pace del Mela,083064,Messina,ME,22,0.007,False,No
+Pagliara,083065,Messina,ME,2415,0.652,True,Sì
+Patti,083066,Messina,ME,7078,0.5688,True,Sì
+Pettineo,083067,Messina,ME,423,0.0539,False,No
+Piraino,083068,Messina,ME,0,0.0,False,No
+Raccuja,083069,Messina,ME,434,0.068,False,No
+Reitano,083070,Messina,ME,2047,0.5756,True,Sì
+Roccafiorita,083071,Messina,ME,169,0.5417,True,Sì
+Roccalumera,083072,Messina,ME,16,0.0066,False,No
+Roccavaldina,083073,Messina,ME,1427,0.7701,True,Sì
+Roccella Valdemone,083074,Messina,ME,47,0.0046,False,No
+Rodì Milici,083075,Messina,ME,0,0.0,False,No
+Rometta,083076,Messina,ME,20,0.0025,False,No
+San Filippo del Mela,083077,Messina,ME,1776,0.6794,True,Sì
+San Fratello,083078,Messina,ME,1069,0.0631,False,No
+San Marco d'Alunzio,083079,Messina,ME,4260,0.6435,True,Sì
+San Pier Niceto,083080,Messina,ME,39,0.0042,False,No
+San Piero Patti,083081,Messina,ME,8343,0.7972,True,Sì
+San Salvatore di Fitalia,083082,Messina,ME,3255,0.8611,True,Sì
+Santa Domenica Vittoria,083083,Messina,ME,3798,0.7366,True,Sì
+Sant'Agata di Militello,083084,Messina,ME,5349,0.6185,True,Sì
+Sant'Alessio Siculo,083085,Messina,ME,13,0.0079,False,No
+Santa Lucia del Mela,083086,Messina,ME,12902,0.6017,True,Sì
+Sant'Angelo di Brolo,083088,Messina,ME,9,0.0012,False,No
+Santa Teresa di Riva,083089,Messina,ME,0,0.0,False,No
+San Teodoro,083090,Messina,ME,3246,0.8987,True,Sì
+Santo Stefano di Camastra,083091,Messina,ME,0,0.0,False,No
+Saponara,083092,Messina,ME,13,0.002,False,No
+Savoca,083093,Messina,ME,0,0.0,False,No
+Scaletta Zanclea,083094,Messina,ME,907,0.7565,True,Sì
+Sinagra,083095,Messina,ME,3650,0.6145,True,Sì
+Spadafora,083096,Messina,ME,11,0.004,False,No
+Taormina,083097,Messina,ME,9,0.0029,False,No
+Torregrotta,083098,Messina,ME,797,0.7505,True,Sì
+Tortorici,083099,Messina,ME,997,0.0564,False,No
+Tripi,083100,Messina,ME,0,0.0,False,No
+Tusa,083101,Messina,ME,6640,0.6445,True,Sì
+Ucria,083102,Messina,ME,4062,0.6041,True,Sì
+Valdina,083103,Messina,ME,1,0.0014,False,No
+Venetico,083104,Messina,ME,1,0.0009,False,No
+Villafranca Tirrena,083105,Messina,ME,16,0.0043,False,No
+Terme Vigliatore,083106,Messina,ME,54,0.0161,False,No
+Acquedolci,083107,Messina,ME,1832,0.5983,True,Sì
+Torrenova,083108,Messina,ME,0,0.0,False,No
+Agrigento,084001,Agrigento,AG,36991,0.616,True,Sì
+Alessandria della Rocca,084002,Agrigento,AG,41,0.0027,False,No
+Aragona,084003,Agrigento,AG,1037,0.0549,False,No
+Bivona,084004,Agrigento,AG,54,0.0024,False,No
+Burgio,084005,Agrigento,AG,1601,0.1513,False,No
+Calamonaci,084006,Agrigento,AG,2959,0.3581,True,Sì
+Caltabellotta,084007,Agrigento,AG,18577,0.6026,True,Sì
+Camastra,084008,Agrigento,AG,194,0.047,False,No
+Cammarata,084009,Agrigento,AG,2310,0.0486,False,No
+Campobello di Licata,084010,Agrigento,AG,3033,0.1513,False,No
+Canicattì,084011,Agrigento,AG,2466,0.1083,False,No
+Casteltermini,084012,Agrigento,AG,519,0.021,False,No
+Castrofilippo,084013,Agrigento,AG,37,0.0081,False,No
+Cattolica Eraclea,084014,Agrigento,AG,12592,0.8147,True,Sì
+Cianciana,084015,Agrigento,AG,339,0.036,False,No
+Comitini,084016,Agrigento,AG,22,0.0041,False,No
+Favara,084017,Agrigento,AG,1858,0.0898,False,No
+Grotte,084018,Agrigento,AG,878,0.1448,False,No
+Joppolo Giancaxio,084019,Agrigento,AG,179,0.0366,False,No
+Licata,084021,Agrigento,AG,31939,0.7165,True,Sì
+Lucca Sicula,084022,Agrigento,AG,1714,0.3569,False,No
+Menfi,084023,Agrigento,AG,102,0.0036,False,No
+Montallegro,084024,Agrigento,AG,1449,0.2118,False,No
+Montevago,084025,Agrigento,AG,0,0.0,False,No
+Naro,084026,Agrigento,AG,1244,0.0243,False,No
+Palma di Montechiaro,084027,Agrigento,AG,3980,0.2084,False,No
+Porto Empedocle,084028,Agrigento,AG,3253,0.52,True,Sì
+Racalmuto,084029,Agrigento,AG,8345,0.4878,True,Sì
+Raffadali,084030,Agrigento,AG,0,0.0,False,No
+Ravanusa,084031,Agrigento,AG,9361,0.7402,True,Sì
+Realmonte,084032,Agrigento,AG,4449,0.9122,True,Sì
+Ribera,084033,Agrigento,AG,2527,0.0866,False,No
+Sambuca di Sicilia,084034,Agrigento,AG,973,0.0403,False,No
+San Biagio Platani,084035,Agrigento,AG,65,0.0061,False,No
+San Giovanni Gemini,084036,Agrigento,AG,4358,0.664,True,Sì
+Santa Elisabetta,084037,Agrigento,AG,191,0.0464,False,No
+Santa Margherita di Belice,084038,Agrigento,AG,0,0.0,False,No
+Sant'Angelo Muxaro,084039,Agrigento,AG,6308,0.3913,True,Sì
+Santo Stefano Quisquina,084040,Agrigento,AG,0,0.0,False,No
+Sciacca,084041,Agrigento,AG,3900,0.0824,False,No
+Siculiana,084042,Agrigento,AG,2685,0.2605,False,No
+Villafranca Sicula,084043,Agrigento,AG,770,0.1758,False,No
+Acquaviva Platani,085001,Caltanissetta,CL,2528,0.669,True,Sì
+Bompensiere,085002,Caltanissetta,CL,947,0.1891,False,No
+Butera,085003,Caltanissetta,CL,4641,0.0637,False,No
+Caltanissetta,085004,Caltanissetta,CL,92564,0.8941,True,Sì
+Campofranco,085005,Caltanissetta,CL,0,0.0,False,No
+Delia,085006,Caltanissetta,CL,1178,0.3738,False,No
+Gela,085007,Caltanissetta,CL,173,0.0025,False,No
+Marianopoli,085008,Caltanissetta,CL,15,0.0045,False,No
+Mazzarino,085009,Caltanissetta,CL,55791,0.7653,True,Sì
+Milena,085010,Caltanissetta,CL,0,0.0,False,No
+Montedoro,085011,Caltanissetta,CL,1076,0.2999,False,No
+Mussomeli,085012,Caltanissetta,CL,30242,0.7416,True,Sì
+Niscemi,085013,Caltanissetta,CL,10,0.0004,False,No
+Resuttano,085014,Caltanissetta,CL,410,0.0423,False,No
+Riesi,085015,Caltanissetta,CL,2128,0.1301,False,No
+San Cataldo,085016,Caltanissetta,CL,2968,0.1634,False,No
+Santa Caterina Villarmosa,085017,Caltanissetta,CL,1,0.0001,False,No
+Serradifalco,085018,Caltanissetta,CL,7976,0.7559,True,Sì
+Sommatino,085019,Caltanissetta,CL,5782,0.6805,True,Sì
+Sutera,085020,Caltanissetta,CL,1363,0.1518,False,No
+Vallelunga Pratameno,085021,Caltanissetta,CL,0,0.0,False,No
+Villalba,085022,Caltanissetta,CL,6131,0.5903,True,Sì
+Agira,086001,Enna,EN,13,0.0003,False,No
+Aidone,086002,Enna,EN,0,0.0,False,No
+Assoro,086003,Enna,EN,1378,0.0488,False,No
+Barrafranca,086004,Enna,EN,261,0.0194,False,No
+Calascibetta,086005,Enna,EN,822,0.0372,False,No
+Catenanuova,086006,Enna,EN,512,0.1769,False,No
+Centuripe,086007,Enna,EN,29338,0.6822,True,Sì
+Cerami,086008,Enna,EN,1730,0.0734,False,No
+Enna,086009,Enna,EN,73672,0.8332,True,Sì
+Gagliano Castelferrato,086010,Enna,EN,728,0.0519,False,No
+Leonforte,086011,Enna,EN,511,0.0244,False,No
+Nicosia,086012,Enna,EN,410,0.0076,False,No
+Nissoria,086013,Enna,EN,8904,0.5814,True,Sì
+Piazza Armerina,086014,Enna,EN,3115,0.0411,False,No
+Pietraperzia,086015,Enna,EN,23501,0.8003,True,Sì
+Regalbuto,086016,Enna,EN,2264,0.0535,False,No
+Sperlinga,086017,Enna,EN,0,0.0,False,No
+Troina,086018,Enna,EN,34890,0.8382,True,Sì
+Valguarnera Caropepe,086019,Enna,EN,308,0.1245,False,No
+Villarosa,086020,Enna,EN,290,0.0211,False,No
+Aci Bonaccorsi,087001,Catania,CT,0,0.0,False,No
+Aci Castello,087002,Catania,CT,3,0.0014,False,No
+Aci Catena,087003,Catania,CT,25,0.0113,False,No
+Acireale,087004,Catania,CT,5932,0.5865,True,Sì
+Aci Sant'Antonio,087005,Catania,CT,42,0.0114,False,No
+Adrano,087006,Catania,CT,14236,0.6894,True,Sì
+Belpasso,087007,Catania,CT,78,0.0019,False,No
+Biancavilla,087008,Catania,CT,431,0.0244,False,No
+Bronte,087009,Catania,CT,674,0.0108,False,No
+Calatabiano,087010,Catania,CT,11,0.0017,False,No
+Caltagirone,087011,Catania,CT,0,0.0,False,No
+Camporotondo Etneo,087012,Catania,CT,926,0.5755,True,Sì
+Castel di Iudica,087013,Catania,CT,500,0.0196,False,No
+Castiglione di Sicilia,087014,Catania,CT,24015,0.8078,True,Sì
+Catania,087015,Catania,CT,99,0.0022,False,No
+Fiumefreddo di Sicilia,087016,Catania,CT,0,0.0,False,No
+Giarre,087017,Catania,CT,0,0.0,False,No
+Grammichele,087018,Catania,CT,0,0.0,False,No
+Gravina di Catania,087019,Catania,CT,986,0.7745,True,Sì
+Licodia Eubea,087020,Catania,CT,345,0.0125,False,No
+Linguaglossa,087021,Catania,CT,9741,0.6535,True,Sì
+Maletto,087022,Catania,CT,1,0.0001,False,No
+Mascali,087023,Catania,CT,0,0.0,False,No
+Mascalucia,087024,Catania,CT,6,0.0015,False,No
+Militello in Val di Catania,087025,Catania,CT,0,0.0,False,No
+Milo,087026,Catania,CT,0,0.0,False,No
+Mineo,087027,Catania,CT,0,0.0,False,No
+Mirabella Imbaccari,087028,Catania,CT,0,0.0,False,No
+Misterbianco,087029,Catania,CT,19,0.002,False,No
+Motta Sant'Anastasia,087030,Catania,CT,0,0.0,False,No
+Nicolosi,087031,Catania,CT,1,0.0001,False,No
+Palagonia,087032,Catania,CT,0,0.0,False,No
+Paternò,087033,Catania,CT,231,0.0065,False,No
+Pedara,087034,Catania,CT,3,0.0006,False,No
+Piedimonte Etneo,087035,Catania,CT,106,0.0158,False,No
+Raddusa,087036,Catania,CT,0,0.0,False,No
+Ramacca,087037,Catania,CT,0,0.0,False,No
+Randazzo,087038,Catania,CT,629,0.0123,False,No
+Riposto,087039,Catania,CT,0,0.0,False,No
+San Cono,087040,Catania,CT,0,0.0,False,No
+San Giovanni la Punta,087041,Catania,CT,1863,0.6699,True,Sì
+San Gregorio di Catania,087042,Catania,CT,842,0.5755,True,Sì
+San Michele di Ganzaria,087043,Catania,CT,0,0.0,False,No
+San Pietro Clarenza,087044,Catania,CT,0,0.0,False,No
+Sant'Agata li Battiati,087045,Catania,CT,41,0.0482,False,No
+Sant'Alfio,087046,Catania,CT,41,0.0063,False,No
+Santa Maria di Licodia,087047,Catania,CT,151,0.0225,False,No
+Santa Venerina,087048,Catania,CT,7,0.0015,False,No
+Scordia,087049,Catania,CT,0,0.0,False,No
+Trecastagni,087050,Catania,CT,1,0.0002,False,No
+Tremestieri Etneo,087051,Catania,CT,17,0.0104,False,No
+Valverde,087052,Catania,CT,0,0.0,False,No
+Viagrande,087053,Catania,CT,0,0.0,False,No
+Vizzini,087054,Catania,CT,102,0.0032,False,No
+Zafferana Etnea,087055,Catania,CT,1,0.0001,False,No
+Mazzarrone,087056,Catania,CT,0,0.0,False,No
+Maniace,087057,Catania,CT,2,0.0002,False,No
+Ragalna,087058,Catania,CT,6468,0.6579,True,Sì
+Acate,088001,Ragusa,RG,1914,0.0754,False,No
+Chiaramonte Gulfi,088002,Ragusa,RG,355,0.0113,False,No
+Comiso,088003,Ragusa,RG,1438,0.0883,False,No
+Giarratana,088004,Ragusa,RG,6641,0.6102,True,Sì
+Ispica,088005,Ragusa,RG,0,0.0,False,No
+Modica,088006,Ragusa,RG,59012,0.8268,True,Sì
+Monterosso Almo,088007,Ragusa,RG,844,0.0609,False,No
+Pozzallo,088008,Ragusa,RG,0,0.0,False,No
+Ragusa,088009,Ragusa,RG,97737,0.8967,True,Sì
+Santa Croce Camerina,088010,Ragusa,RG,1589,0.1595,False,No
+Scicli,088011,Ragusa,RG,29232,0.8552,True,Sì
+Vittoria,088012,Ragusa,RG,34143,0.7658,True,Sì
+Augusta,089001,Siracusa,SR,21737,0.7884,True,Sì
+Avola,089002,Siracusa,SR,0,0.0,False,No
+Buccheri,089003,Siracusa,SR,1,0.0001,False,No
+Buscemi,089004,Siracusa,SR,8,0.0006,False,No
+Canicattini Bagni,089005,Siracusa,SR,64,0.0165,False,No
+Carlentini,089006,Siracusa,SR,112,0.0029,False,No
+Cassaro,089007,Siracusa,SR,89,0.0182,False,No
+Ferla,089008,Siracusa,SR,188,0.0318,False,No
+Floridia,089009,Siracusa,SR,13,0.002,False,No
+Francofonte,089010,Siracusa,SR,0,0.0,False,No
+Lentini,089011,Siracusa,SR,0,0.0,False,No
+Melilli,089012,Siracusa,SR,206,0.0062,False,No
+Noto,089013,Siracusa,SR,30,0.0002,False,No
+Pachino,089014,Siracusa,SR,0,0.0,False,No
+Palazzolo Acreide,089015,Siracusa,SR,21,0.001,False,No
+Rosolini,089016,Siracusa,SR,1016,0.0535,False,No
+Siracusa,089017,Siracusa,SR,42588,0.8346,True,Sì
+Solarino,089018,Siracusa,SR,8,0.0024,False,No
+Sortino,089019,Siracusa,SR,16650,0.7235,True,Sì
+Portopalo di Capo Passero,089020,Siracusa,SR,0,0.0,False,No
+Priolo Gargallo,089021,Siracusa,SR,35,0.0025,False,No
+Misiliscemi,081025,Trapani,TP,16990,0.7336,True,Sì
