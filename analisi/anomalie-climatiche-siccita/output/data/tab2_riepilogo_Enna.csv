@@ -1,0 +1,7 @@
+indice,versione,media,std,min,max,pct_|SPI|>3
+SPI1,fornito,-0.496,0.649,-2.65,2.12,0.0
+SPI1,corretto,0.009,0.991,-3.58,3.28,0.68
+SPI2,fornito,-0.095,0.861,-2.4,2.39,0.0
+SPI2,corretto,0.001,1.001,-3.07,3.41,0.34
+SPI3,fornito,-0.095,0.818,-2.34,2.62,0.0
+SPI3,corretto,-0.002,1.0,-2.83,3.17,0.23

@@ -1,0 +1,4 @@
+indice,media_cella_mediana,media_p5,media_p95,std_cella_mediana,std_p5,std_p95
+SPI1,0.068,0.027,0.115,0.941,0.922,0.966
+SPI2,0.013,0.001,0.04,0.98,0.962,0.996
+SPI3,0.001,-0.002,0.007,0.997,0.988,1.0

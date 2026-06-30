@@ -1,0 +1,19 @@
+indice,classe,oss_%,teorica_%
+SPI1,estrema siccita' (<=-2),1.6,2.3
+SPI1,"severa (-2,-1.5]",3.2,4.4
+SPI1,"moderata (-1.5,-1]",7.1,9.2
+SPI1,"lieve (-1,0]",35.9,34.1
+SPI1,"umido lieve (0,1]",36.7,34.1
+SPI1,umido mod.+ (>1),15.6,15.9
+SPI2,estrema siccita' (<=-2),1.7,2.3
+SPI2,"severa (-2,-1.5]",3.7,4.4
+SPI2,"moderata (-1.5,-1]",9.0,9.2
+SPI2,"lieve (-1,0]",36.4,34.1
+SPI2,"umido lieve (0,1]",33.5,34.1
+SPI2,umido mod.+ (>1),15.8,15.9
+SPI3,estrema siccita' (<=-2),1.9,2.3
+SPI3,"severa (-2,-1.5]",4.4,4.4
+SPI3,"moderata (-1.5,-1]",9.5,9.2
+SPI3,"lieve (-1,0]",34.9,34.1
+SPI3,"umido lieve (0,1]",33.5,34.1
+SPI3,umido mod.+ (>1),15.8,15.9

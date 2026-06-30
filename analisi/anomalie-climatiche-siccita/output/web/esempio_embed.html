@@ -1,0 +1,29 @@
+<!doctype html><html lang="it"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Esempio di pagina ospite</title>
+<style>
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    max-width:760px;margin:0 auto;padding:24px;color:#1d2630;line-height:1.55}
+  h1{font-size:24px} p{color:#3a444e}
+  .embed{margin:24px 0}
+</style></head><body>
+  <h1>La siccità in Sicilia, settant'anni in un colpo d'occhio</h1>
+  <p>Questo è un esempio di articolo che incorpora il widget. La mappa qui sotto si
+     ridimensiona da sola grazie allo script di auto-altezza (nessuna barra di scorrimento interna).</p>
+  <div class="embed">
+    <iframe id="mappaSicilia" src="sicilia_siccita.html"
+      title="Siccità in Sicilia 1951–2024"
+      style="width:100%;max-width:680px;height:760px;border:0;display:block;margin:auto"
+      loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
+  </div>
+  <p>…il testo dell'articolo continua qui sotto, e l'iframe non lascia spazi vuoti perché
+     la sua altezza è esattamente quella del contenuto.</p>
+  <script>
+    window.addEventListener('message', function(e){
+      if(e.data && e.data.type === 'sicilia-embed-height'){
+        var f = document.getElementById('mappaSicilia');
+        if(f) f.style.height = e.data.height + 'px';
+      }
+    });
+  </script>
+</body></html>

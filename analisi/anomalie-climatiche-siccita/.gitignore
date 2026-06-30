@@ -1,0 +1,8 @@
+# Dati NetCDF/binari pesanti (troppo grandi per GitHub, limite 100 MB/file).
+# Restano sul disco locale: gli script li leggono da data/.
+*.nc
+*.npy
+
+# Cache Python
+__pycache__/
+*.pyc
