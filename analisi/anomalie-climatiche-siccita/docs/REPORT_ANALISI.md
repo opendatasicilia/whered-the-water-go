@@ -1,7 +1,6 @@
 # Report di analisi — Anomalie climatiche e condizioni di siccità in Sicilia (1951–2024)
 
 *Riproduzione delle analisi, verifica e correzione degli indici SPI, e prodotti derivati (figure, dati aperti, mappa interattiva).*
-*Comunità OpenDataSicilia · progetto "Where'd the Water Go?"*
 
 ---
 
@@ -44,7 +43,7 @@ Delle 10 figure del report originale ne sono state riprodotte **7**; le 3 mancan
 
 ![Fig. 4 — Serie stagionali di precipitazione per provincia con medie di lungo periodo; i punti neri sono le anomalie oltre ±2σ dalla media stagionale 1951–2024.](../output/fig04_precip_anomaly_ts.png)
 
-## 4. Il problema: gli SPI forniti non sono standardizzati
+## 4. Proprietà statistiche degli SPI forniti
 
 Lo SPI è, per costruzione, una variabile normale standard calcolata **separatamente per ogni mese di calendario**: questo rimuove il ciclo stagionale, così che un −1 a gennaio e uno ad agosto indichino la stessa severità relativa. Media e deviazione standard devono perciò valere 0 e 1 in *ogni* mese. I file forniti violano questa proprietà.
 
@@ -81,7 +80,7 @@ Periodo di riferimento del fit: l'intero 1951–2024; celle/mesi con meno di 20 
 
 Output: `data/Sicily_SPI_{1,2,3}_recomputed_1951_2024.nc` (var `SPI`).
 
-## 6. Risultato chiave: il 2006–2024 non è il periodo più secco
+## 6. Confronto della siccità per periodo
 
 | Indice | Metrica | 1951–68 | 1969–87 | 1988–2005 | 2006–24 |
 |---|---|---|---|---|---|
@@ -93,18 +92,34 @@ Output: `data/Sicily_SPI_{1,2,3}_recomputed_1951_2024.nc` (var `SPI`).
 
 Il periodo **più secco è il 1969–1987** (fino al 92 % del territorio in deficit), mentre il **2006–2024 è il più umido** dei quattro (~9 % in deficit). Ciò **contraddice** l'affermazione del report originale ("dopo il 2006 la siccità diventa dominante, con SPI3 su oltre il 70 % del territorio"). Lo stesso segnale, in forma attenuata, è presente anche nei file forniti.
 
-![Fig. 8 (corretta) — Mappe SPI 1/2/3 (righe) sui quattro periodi (colonne) con lo SPI ricalcolato. Blu = umido, rosso = secco rispetto alla media 1951–2024; isolinea 0 = confine siccità/umidità. L'ultima colonna (periodo recente) è prevalentemente umida.](../output/fig08_spi_maps_CORRETTO.png)
+### 6.1 Confronto visivo: figure originali (dati forniti) vs ricalcolate
 
-![Fig. 9 (corretta) — Densità (KDE) degli SPI 1/2/3 per provincia con lo SPI ricalcolato.](../output/fig09_spi_density_CORRETTO.png)
+Le tre figure SPI del report originale sono messe a confronto con le stesse figure rigenerate dallo SPI ricalcolato. Il codice di tracciamento è identico: cambia solo il dataset SPI in ingresso, così il confronto isola l'effetto della correzione.
 
-![Fig. 10 (corretta) — Serie temporali SPI 1/2/3 per provincia (media mobile 12 mesi). I tuffi più profondi e prolungati sono tra gli anni '70 e i primi 2000.](../output/fig10_spi_ts_CORRETTO.png)
+**Fig. 8 — mappe SPI per periodo**
 
-## 7. Cosa abbiamo prodotto con gli SPI corretti
+![Fig. 8 — dati forniti (originale). La siccità (rosso) appare diffusa in tutti i periodi, incluso il 2006–2024.](images/image8.png)
+
+![Fig. 8 — dati ricalcolati. Stessa figura con lo SPI standard: il periodo recente (ultima colonna) risulta prevalentemente umido (blu).](../output/fig08_spi_maps_CORRETTO.png)
+
+**Fig. 9 — densità SPI per provincia**
+
+![Fig. 9 — dati forniti (originale). Densità SPI per provincia: forme irregolari, talvolta bimodali (es. Trapani, Ragusa, Agrigento).](images/image9.png)
+
+![Fig. 9 — dati ricalcolati. Curve regolari e centrate su 0, prossime alla normale standard, come atteso per uno SPI ben definito.](../output/fig09_spi_density_CORRETTO.png)
+
+**Fig. 10 — serie temporali SPI**
+
+![Fig. 10 — dati forniti (originale). Serie SPI (media mobile 12 mesi) spesso spostate sotto lo zero nelle province interne: effetto del bias residuo.](images/image10.png)
+
+![Fig. 10 — dati ricalcolati. Serie centrate sullo zero che oscillano simmetricamente; le fasi umide recenti (anni 2000) emergono con chiarezza.](../output/fig10_spi_ts_CORRETTO.png)
+
+## 7. Prodotti derivati
 
 Gli indici ricalcolati e la precipitazione integra sono stati usati per cinque prodotti:
 
 1. **Figure corrette 8–10** (`scripts/fig_spi_corretto.py`): mappe per periodo, densità KDE per provincia (Fig. 9) e serie temporali a media mobile 12 mesi (Fig. 10).
-2. **Analisi per periodo** (`scripts/analisi_periodi.py`): confronto sistematico ricalcolato vs fornito sui quattro periodi, con il risultato chiave del §6.
+2. **Analisi per periodo** (`scripts/analisi_periodi.py`): confronto sistematico ricalcolato vs fornito sui quattro periodi (§6).
 3. **Dati aperti per Datawrapper** (`scripts/datawrapper_csv.py`, 5 CSV `A–E`): cronologia SPI sull'isola, quota di territorio in deficit per periodo, anomalia SPI3 per provincia/periodo, regime mensile delle piogge e pioggia annuale (media di lungo periodo 576 mm).
 4. **Mappa animata interattiva** (`scripts/build_map_animation.py`), descritta sotto.
 5. **Dataset NetCDF ricalcolato** riusabile da terzi, con verifica di qualità allegata (CSV `verify_A…D`).

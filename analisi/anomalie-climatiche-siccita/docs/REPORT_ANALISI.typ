@@ -21,9 +21,6 @@
     Riproduzione delle analisi, verifica e correzione degli indici SPI, \
     e prodotti derivati (figure, dati aperti, mappa interattiva)
   ]
-  #linebreak()
-  #v(6pt)
-  #text(size: 9pt, fill: luma(120))[Comunità OpenDataSicilia · progetto "Where'd the Water Go?"]
 ]
 
 #v(8pt)
@@ -120,7 +117,7 @@ integra e ha permesso di riprodurre fedelmente mappe, densità e serie.
   stagionale 1951–2024.],
 )
 
-== 4. Il problema: gli SPI forniti non sono standardizzati
+== 4. Proprietà statistiche degli SPI forniti
 
 Lo SPI è, per costruzione, una variabile normale standard calcolata *separatamente per
 ogni mese di calendario*: questo rimuove il ciclo stagionale, così che un $-1$ a
@@ -188,7 +185,7 @@ positivi non vengono fittati. *Verifiche superate* (`scripts/verify_spi.py`):
 
 Output: `data/Sicily_SPI_{1,2,3}_recomputed_1951_2024.nc` (var `SPI`).
 
-== 6. Risultato chiave: il 2006–2024 non è il periodo più secco
+== 6. Confronto della siccità per periodo
 
 #figure(
   table(
@@ -211,21 +208,46 @@ l'affermazione del report originale ("dopo il 2006 la siccità diventa dominante
 SPI3 su oltre il 70 % del territorio"). Lo stesso segnale, in forma attenuata, è
 presente anche nei file forniti.
 
+=== 6.1 Confronto visivo: figure originali (dati forniti) vs ricalcolate
+
+Le tre figure SPI del report originale sono messe a confronto con le stesse figure
+rigenerate dallo SPI ricalcolato. Il codice di tracciamento è identico: cambia solo il
+dataset SPI in ingresso, così il confronto isola l'effetto della correzione.
+
+#figure(
+  image("images/image8.png", width: 92%),
+  caption: [*Fig. 8 — dati forniti (originale).* La siccità (rosso) appare diffusa in
+  tutti i periodi, incluso il 2006–2024.],
+)
 #figure(
   image("../output/fig08_spi_maps_CORRETTO.png", width: 92%),
-  caption: [Fig. 8 (corretta) — Mappe SPI 1/2/3 (righe) sui quattro periodi (colonne)
-  con lo SPI ricalcolato. Blu = umido, rosso = secco rispetto alla media 1951–2024;
-  isolinea 0 = confine siccità/umidità. L'ultima colonna (periodo recente) è
-  prevalentemente umida.],
+  caption: [*Fig. 8 — dati ricalcolati.* Stessa figura con lo SPI standard: il periodo
+  recente (ultima colonna) risulta prevalentemente umido (blu).],
 )
 
 #figure(
-  image("../output/fig10_spi_ts_CORRETTO.png", width: 92%),
-  caption: [Fig. 10 (corretta) — Serie temporali SPI 1/2/3 per provincia (media mobile
-  12 mesi). I tuffi più profondi e prolungati sono tra gli anni '70 e i primi 2000.],
+  image("images/image9.png", width: 86%),
+  caption: [*Fig. 9 — dati forniti (originale).* Densità SPI per provincia: forme
+  irregolari, talvolta bimodali (es. Trapani, Ragusa, Agrigento).],
+)
+#figure(
+  image("../output/fig09_spi_density_CORRETTO.png", width: 86%),
+  caption: [*Fig. 9 — dati ricalcolati.* Curve regolari e centrate su 0, prossime alla
+  normale standard, come atteso per uno SPI ben definito.],
 )
 
-== 7. Cosa abbiamo prodotto con gli SPI corretti
+#figure(
+  image("images/image10.png", width: 92%),
+  caption: [*Fig. 10 — dati forniti (originale).* Serie SPI (media mobile 12 mesi)
+  spesso spostate sotto lo zero nelle province interne: effetto del bias residuo.],
+)
+#figure(
+  image("../output/fig10_spi_ts_CORRETTO.png", width: 92%),
+  caption: [*Fig. 10 — dati ricalcolati.* Serie centrate sullo zero che oscillano
+  simmetricamente; le fasi umide recenti (anni 2000) emergono con chiarezza.],
+)
+
+== 7. Prodotti derivati
 
 Gli indici ricalcolati e la precipitazione integra sono stati usati per cinque
 prodotti:
