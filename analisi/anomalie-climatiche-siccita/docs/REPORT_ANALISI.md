@@ -4,7 +4,7 @@
 
 ---
 
-> **In breve.** Questo documento riproduce le analisi del report originale sulle anomalie climatiche e la siccità in Sicilia a partire dai dataset forniti, e ne verifica la solidità. Il controllo di qualità ha rilevato che i file SPI forniti (`Sicily_SPI_{1,2,3}_predicted`) **non sono indici standardizzati corretti**: conservano un marcato ciclo stagionale — che lo SPI per definizione deve rimuovere — e, per SPI1, un bias negativo con valori non fisici. Abbiamo quindi **ricalcolato** lo SPI dalla precipitazione secondo McKee et al. (1993) e le linee guida WMO (2012), ottenendo indici verificati (media ≈ 0, σ ≈ 1 per ogni mese), e li abbiamo usati per produrre figure corrette, dati aperti per Datawrapper e una mappa animata interattiva. Con gli indici corretti **il periodo più secco risulta il 1969–1987 e il 2006–2024 il più umido** dei quattro analizzati: ciò ridimensiona la tesi secondo cui la siccità diventa dominante dopo il 2006. La conclusione vale per la **sola precipitazione**: la componente termica non è valutabile perché il dataset di temperatura non è stato fornito.
+> **In breve.** Questo documento riproduce le analisi del report originale sulle anomalie climatiche e la siccità in Sicilia a partire dai dataset forniti, e ne verifica la solidità. Il controllo di qualità ha rilevato che i file SPI forniti (`Sicily_SPI_{1,2,3}_predicted`) **non sono indici standardizzati corretti**: conservano un marcato ciclo stagionale — che lo SPI per definizione deve rimuovere — e, per SPI1, un bias negativo con valori non fisici. Abbiamo quindi **ricalcolato** lo SPI dalla precipitazione secondo McKee et al. (1993) e le linee guida WMO (2012), ottenendo indici verificati (media ≈ 0, σ ≈ 1 per ogni mese), e li abbiamo usati per rigenerare le figure, produrre dati aperti per Datawrapper e una mappa animata interattiva. Lo SPI quantifica la **sola precipitazione**: la componente termica non è valutabile perché il dataset di temperatura non è stato fornito.
 
 Il documento è in due parti. La **Parte I** è una nota tecnica per esperti di dominio (climatologi, idrologi, ingegneri idraulici). La **Parte II** riassume gli stessi contenuti in linguaggio divulgativo.
 
@@ -59,7 +59,7 @@ Lo SPI è, per costruzione, una variabile normale standard calcolata **separatam
 
 *In un indice corretto la colonna sarebbe piatta a 0; qui il ciclo stagionale residuo è evidente.*
 
-Inoltre: **SPI1** ha media globale −0.44 e σ = 0.82 (anziché 0 e 1), spostato verso il "secco" e con varianza compressa; compaiono **valori non fisici** (fino a +12 per SPI1, −7 per SPI2), mentre lo SPI reale resta quasi sempre entro ±3. In pratica l'indice fornito **confonde la normale stagionalità con la siccità** (es.: 22 mm a luglio a Enna — un luglio *umido* — vengono letti come "secchi"). Il report non documenta né il metodo di calcolo né questa anomalia: sono le ragioni per cui riteniamo che gli SPI forniti vadano **corretti** prima di qualsiasi uso.
+Inoltre: **SPI1** ha media globale −0.44 e σ = 0.82 (anziché 0 e 1) e varianza compressa; compaiono **valori non fisici** (fino a +12 per SPI1, −7 per SPI2), mentre uno SPI standardizzato resta quasi sempre entro ±3. Il report non documenta né il metodo di calcolo né queste proprietà. Per questo motivo lo SPI è stato ricalcolato (§5).
 
 ## 5. Correzione: ricalcolo dello SPI standard e verifica
 
@@ -84,13 +84,13 @@ Output: `data/Sicily_SPI_{1,2,3}_recomputed_1951_2024.nc` (var `SPI`).
 
 | Indice | Metrica | 1951–68 | 1969–87 | 1988–2005 | 2006–24 |
 |---|---|---|---|---|---|
-| SPI3 | media isola | +0.07 | **−0.12** | −0.06 | **+0.12** |
-| SPI3 | % terr. in deficit | 25 % | **92 %** | 75 % | **9 %** |
-| SPI2 | media isola | +0.07 | **−0.09** | −0.02 | **+0.10** |
+| SPI3 | media isola | +0.07 | −0.12 | −0.06 | +0.12 |
+| SPI3 | % terr. in deficit | 25 % | 92 % | 75 % | 9 % |
+| SPI2 | media isola | +0.07 | −0.09 | −0.02 | +0.10 |
 
 *Siccità per periodo con lo SPI ricalcolato (`scripts/analisi_periodi.py`): media spaziale sull'isola e quota di territorio con SPI medio di periodo < 0.*
 
-Il periodo **più secco è il 1969–1987** (fino al 92 % del territorio in deficit), mentre il **2006–2024 è il più umido** dei quattro (~9 % in deficit). Ciò **contraddice** l'affermazione del report originale ("dopo il 2006 la siccità diventa dominante, con SPI3 su oltre il 70 % del territorio"). Lo stesso segnale, in forma attenuata, è presente anche nei file forniti.
+Le stesse metriche calcolate sui file SPI forniti sono riportate per confronto in `output/data/analisi_periodi_siccita.csv`.
 
 ### 6.1 Confronto visivo: figure originali (dati forniti) vs ricalcolate
 
@@ -98,27 +98,27 @@ Le tre figure SPI del report originale sono messe a confronto con le stesse figu
 
 **Fig. 8 — mappe SPI per periodo**
 
-![Fig. 8 — dati forniti (originale). La siccità (rosso) appare diffusa in tutti i periodi, incluso il 2006–2024.](images/image8.png)
+![Fig. 8 — dati forniti. Mappe SPI 1/2/3 (righe) sui quattro periodi (colonne), dai file SPI forniti.](images/image8.png)
 
-![Fig. 8 — dati ricalcolati. Stessa figura con lo SPI standard: il periodo recente (ultima colonna) risulta prevalentemente umido (blu).](../output/fig08_spi_maps_CORRETTO.png)
+![Fig. 8 — dati ricalcolati. Stessa figura rigenerata con lo SPI ricalcolato. Blu = umido, rosso = secco rispetto alla media 1951–2024; isolinea 0 = confine siccità/umidità.](../output/fig08_spi_maps_CORRETTO.png)
 
 **Fig. 9 — densità SPI per provincia**
 
-![Fig. 9 — dati forniti (originale). Densità SPI per provincia: forme irregolari, talvolta bimodali (es. Trapani, Ragusa, Agrigento).](images/image9.png)
+![Fig. 9 — dati forniti. Densità (KDE) degli SPI 1/2/3 per provincia, dai file SPI forniti.](images/image9.png)
 
-![Fig. 9 — dati ricalcolati. Curve regolari e centrate su 0, prossime alla normale standard, come atteso per uno SPI ben definito.](../output/fig09_spi_density_CORRETTO.png)
+![Fig. 9 — dati ricalcolati. Densità (KDE) degli SPI 1/2/3 per provincia, dallo SPI ricalcolato.](../output/fig09_spi_density_CORRETTO.png)
 
 **Fig. 10 — serie temporali SPI**
 
-![Fig. 10 — dati forniti (originale). Serie SPI (media mobile 12 mesi) spesso spostate sotto lo zero nelle province interne: effetto del bias residuo.](images/image10.png)
+![Fig. 10 — dati forniti. Serie temporali SPI 1/2/3 per provincia (media mobile 12 mesi), dai file SPI forniti.](images/image10.png)
 
-![Fig. 10 — dati ricalcolati. Serie centrate sullo zero che oscillano simmetricamente; le fasi umide recenti (anni 2000) emergono con chiarezza.](../output/fig10_spi_ts_CORRETTO.png)
+![Fig. 10 — dati ricalcolati. Serie temporali SPI 1/2/3 per provincia (media mobile 12 mesi), dallo SPI ricalcolato.](../output/fig10_spi_ts_CORRETTO.png)
 
 ## 7. Prodotti derivati
 
 Gli indici ricalcolati e la precipitazione integra sono stati usati per cinque prodotti:
 
-1. **Figure corrette 8–10** (`scripts/fig_spi_corretto.py`): mappe per periodo, densità KDE per provincia (Fig. 9) e serie temporali a media mobile 12 mesi (Fig. 10).
+1. **Figure rigenerate 8–10** (`scripts/fig_spi_corretto.py`): mappe per periodo, densità KDE per provincia (Fig. 9) e serie temporali a media mobile 12 mesi (Fig. 10).
 2. **Analisi per periodo** (`scripts/analisi_periodi.py`): confronto sistematico ricalcolato vs fornito sui quattro periodi (§6).
 3. **Dati aperti per Datawrapper** (`scripts/datawrapper_csv.py`, 5 CSV `A–E`): cronologia SPI sull'isola, quota di territorio in deficit per periodo, anomalia SPI3 per provincia/periodo, regime mensile delle piogge e pioggia annuale (media di lungo periodo 576 mm).
 4. **Mappa animata interattiva** (`scripts/build_map_animation.py`), descritta sotto.
@@ -138,7 +138,7 @@ Il widget si incorpora con un semplice `<iframe>` (istruzioni in `output/web/COM
 
 ## 8. Limiti e avvertenze
 
-Lo SPI quantifica **esclusivamente la precipitazione**. Il fatto che la pioggia non indichi il 2006–2024 come il periodo più secco **non esclude** una siccità agricola o idrologica recente, che può essere guidata dall'aumento delle temperature e dell'evapotraspirazione. Questa componente **non è verificabile** in assenza del dataset di temperatura. Indici che includono la domanda evapotraspirativa (es. **SPEI**) sarebbero più adatti a coglierla. Raccomandazioni operative: non utilizzare i file `SPI_predicted` così come sono; aggiornare figure e testo con gli indici corretti; documentare metodo e periodo di riferimento; reperire la temperatura.
+Lo SPI quantifica **esclusivamente la precipitazione**: non cattura la siccità agricola o idrologica legata all'aumento delle temperature e dell'evapotraspirazione, componente **non verificabile** in assenza del dataset di temperatura. Indici che includono la domanda evapotraspirativa (es. **SPEI**) sarebbero più adatti a coglierla.
 
 ## 9. Riproducibilità
 
@@ -149,7 +149,7 @@ I file NetCDF (~3.3 GB) non sono versionati (vedi `.gitignore`); gli SPI ricalco
 uv venv /tmp/climenv --python 3.12
 VIRTUAL_ENV=/tmp/climenv uv pip install numpy pandas xarray netCDF4 \
   matplotlib scipy geopandas shapely regionmask
-# ricalcolo SPI, verifica, analisi per periodo, figure corrette, dati e mappa
+# ricalcolo SPI, verifica, analisi per periodo, figure rigenerate, dati e mappa
 P=/tmp/climenv/bin/python3
 $P scripts/compute_spi.py
 $P scripts/verify_spi.py
@@ -167,7 +167,7 @@ $P scripts/build_map_animation.py
 
 ## Cosa abbiamo guardato
 
-Abbiamo studiato **quanta pioggia è caduta in Sicilia, mese per mese, dal 1951 al 2024** — quasi 74 anni — su una griglia fittissima che copre tutta l'isola con quadretti di circa un chilometro di lato. L'obiettivo: capire quando e dove c'è stata siccità, e verificare se i dati raccontano davvero quello che si dice in giro, cioè che la situazione sia peggiorata soprattutto negli ultimi anni.
+Abbiamo studiato **quanta pioggia è caduta in Sicilia, mese per mese, dal 1951 al 2024** — quasi 74 anni — su una griglia fittissima che copre tutta l'isola con quadretti di circa un chilometro di lato, per misurare quando e dove c'è stata siccità a partire dai dati di pioggia.
 
 ## Da dove vengono i dati
 
@@ -179,16 +179,10 @@ L'indice di siccità che ci è stato dato era **tarato male**. Funziona un po' c
 
 Per questo lo abbiamo **ricalcolato da zero** partendo dalla pioggia, seguendo il metodo scientifico standard riconosciuto a livello internazionale (McKee 1993, linee guida dell'Organizzazione Meteorologica Mondiale). Poi lo abbiamo **verificato**: ora i numeri si comportano come devono in ogni mese dell'anno.
 
-## Cosa abbiamo scoperto
-
-Con l'indice corretto, la storia cambia. **Il periodo più secco non sono gli anni 2000, ma il 1969–1987**: in quegli anni quasi tutta l'isola era in deficit di pioggia. Il periodo **2006–2024 risulta invece il più "umido"** dei quattro che abbiamo confrontato. La siccità, insomma, **va e viene**: non è una novità degli ultimi anni.
-
-![Le mappe della siccità nei quattro periodi (in rosso le zone più secche, in blu le più umide). L'ultima colonna, gli anni più recenti, è in prevalenza blu.](../output/fig08_spi_maps_CORRETTO.png)
-
 ## La mappa che si muove
 
 Per raccontare tutto questo in modo immediato abbiamo costruito una **mappa animata** della Sicilia che scorre dal 1951 al 2024: si vede l'isola colorarsi di rosso quando è secca e di blu quando è umida, con un cursore per spostarsi nel tempo e tre indici selezionabili (pioggia e siccità a 1 e 3 mesi). È un unico file che funziona in qualsiasi pagina web, anche da telefono, senza scaricare nulla da internet.
 
 ## L'avvertenza onesta
 
-Tutto questo riguarda **solo la pioggia**. Ma la siccità dipende anche dal **caldo**: con temperature più alte l'acqua evapora di più e il terreno si secca anche se piove normalmente. Non abbiamo potuto verificare questa parte perché **il dato sulle temperature non ci è stato fornito**. Quindi: la pioggia non indica gli ultimi anni come i più secchi, ma questo **non vuol dire** che non ci sia stata difficoltà idrica — il caldo record degli ultimi anni può aver fatto la sua parte. Per dirlo con certezza servirebbe un indice che mette insieme pioggia *e* temperatura (lo SPEI).
+Tutto questo riguarda **solo la pioggia**. Ma la siccità dipende anche dal **caldo**: con temperature più alte l'acqua evapora di più e il terreno si secca anche se piove normalmente. Non abbiamo potuto tenerne conto perché **il dato sulle temperature non ci è stato fornito**. Per includerlo servirebbe un indice che mette insieme pioggia *e* temperatura (lo SPEI).
