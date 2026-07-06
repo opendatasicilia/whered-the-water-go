@@ -1,7 +1,6 @@
 comune,pro_com_t,den_prov
 Buseto Palizzolo,081002,Trapani
 Calatafimi-Segesta,081003,Trapani
-Favignana,081009,Trapani
 Paceco,081013,Trapani
 Pantelleria,081014,Trapani
 Partanna,081015,Trapani
@@ -11,6 +10,7 @@ Santa Ninfa,081019,Trapani
 Vita,081023,Trapani
 Alia,082001,Palermo
 Alimena,082002,Palermo
+Aliminusa,082003,Palermo
 Altavilla Milicia,082004,Palermo
 Altofonte,082005,Palermo
 Balestrate,082007,Palermo
@@ -147,6 +147,7 @@ Favara,084017,Agrigento
 Grotte,084018,Agrigento
 Joppolo Giancaxio,084019,Agrigento
 Lampedusa e Linosa,084020,Agrigento
+Lucca Sicula,084022,Agrigento
 Menfi,084023,Agrigento
 Montallegro,084024,Agrigento
 Montevago,084025,Agrigento
@@ -160,13 +161,16 @@ Santa Elisabetta,084037,Agrigento
 Santa Margherita di Belice,084038,Agrigento
 Santo Stefano Quisquina,084040,Agrigento
 Sciacca,084041,Agrigento
+Siculiana,084042,Agrigento
 Villafranca Sicula,084043,Agrigento
 Bompensiere,085002,Caltanissetta
 Butera,085003,Caltanissetta
 Campofranco,085005,Caltanissetta
+Delia,085006,Caltanissetta
 Gela,085007,Caltanissetta
 Marianopoli,085008,Caltanissetta
 Milena,085010,Caltanissetta
+Montedoro,085011,Caltanissetta
 Niscemi,085013,Caltanissetta
 Resuttano,085014,Caltanissetta
 Riesi,085015,Caltanissetta
