@@ -1,0 +1,248 @@
+<!doctype html><html lang="it"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SPI spazializzato — serie SIAS 1991–2026</title>
+<style>
+  :root{--bg:#ffffff;--card:#ffffff;--ink:#12333a;--muted:#5f6f73;--line:#e2e8e5;
+        --accent:#2f6a3f;--stroke:#16324a;--shadow:0 1px 0 rgba(0,0,0,.04),0 10px 30px -14px rgba(0,0,0,.22);}
+  @media(prefers-color-scheme:dark){:root{--bg:#0e1316;--card:#151b1f;--ink:#e8f0ec;--muted:#93a29a;
+        --line:#232d2a;--accent:#82c893;--stroke:#a9c4d8;--shadow:0 1px 0 rgba(0,0,0,.4),0 12px 34px -14px rgba(0,0,0,.6);}}
+  :root[data-theme=light]{--bg:#ffffff;--card:#ffffff;--ink:#12333a;--muted:#5f6f73;--line:#e2e8e5;--accent:#2f6a3f;--stroke:#16324a;}
+  :root[data-theme=dark]{--bg:#0e1316;--card:#151b1f;--ink:#e8f0ec;--muted:#93a29a;--line:#232d2a;--accent:#82c893;--stroke:#a9c4d8;}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:780px;margin:0 auto;padding:18px 16px 26px}
+  .title{font-size:21px;font-weight:750;letter-spacing:-.015em;margin:0}
+  .sub{font-size:12.5px;color:var(--muted);margin:6px 0 14px;line-height:1.45;max-width:64ch}
+  .tabs{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+  .tab{font-size:12.5px;font-weight:600;padding:7px 14px;border-radius:999px;border:1px solid var(--line);
+    background:transparent;color:var(--ink);cursor:pointer;transition:.12s;font-family:inherit}
+  .tab[aria-selected=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .datebar{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 2px 8px}
+  .date{font-size:clamp(24px,6vw,38px);font-weight:800;letter-spacing:-.02em;line-height:1;
+    text-transform:capitalize;font-variant-numeric:tabular-nums}
+  .tsbadge{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.02em}
+  .stage{position:relative;width:100%;border-radius:14px;overflow:hidden;background:var(--card);
+    border:1px solid var(--line);box-shadow:var(--shadow)}
+  canvas{display:block;width:100%;height:auto}
+  .overlay{position:absolute;inset:0;display:grid;place-items:center;background:var(--card);
+    color:var(--muted);font-size:13px;font-weight:600;z-index:4;text-align:center;padding:20px}
+  .tip{position:absolute;pointer-events:none;opacity:0;transform:translate(-50%,-118%);z-index:5;
+    background:var(--ink);color:var(--bg);padding:7px 10px;border-radius:8px;font-size:12px;
+    white-space:nowrap;box-shadow:0 6px 18px -6px rgba(0,0,0,.4);transition:opacity .08s}
+  .tip b{font-weight:700}.tip .m{font-family:ui-monospace,Menlo,monospace;font-size:11px;opacity:.85}
+  .tip .sp{font-weight:800}
+  .tip::after{content:"";position:absolute;left:50%;top:100%;transform:translateX(-50%);
+    border:5px solid transparent;border-top-color:var(--ink)}
+  .controls{display:flex;align-items:center;gap:13px;margin-top:13px}
+  .play{flex:0 0 auto;width:46px;height:46px;border-radius:50%;border:0;cursor:pointer;
+    background:var(--ink);color:var(--bg);font-size:15px;display:grid;place-items:center}
+  .play:active{transform:scale(.93)}
+  input[type=range]{flex:1;width:100%;accent-color:var(--accent);height:26px;cursor:pointer}
+  /* legenda a scala */
+  .legend{margin-top:18px}
+  .legbar{display:flex;height:15px;border-radius:5px;overflow:hidden;border:1px solid var(--line)}
+  .legbar>span{flex:1}
+  .legticks{position:relative;height:16px;margin-top:3px}
+  .legticks>span{position:absolute;transform:translateX(-50%);font-size:10px;color:var(--muted);
+    font-variant-numeric:tabular-nums;white-space:nowrap}
+  .legends{display:flex;justify-content:space-between;font-size:11px;font-weight:600;color:var(--muted);margin-top:2px}
+  .foot{font-size:11px;color:var(--muted);margin-top:16px;line-height:1.5}
+  .err{color:#c0392b}
+</style></head><body>
+<div class="wrap">
+  <h1 class="title">Indice SPI</h1>
+  <p class="sub">Serie SIAS estesa 1991–2026. Premi play o trascina il cursore nel tempo.
+     Passa sui punti stazione per i dettagli.</p>
+  <div class="tabs" id="tabs"></div>
+  <div class="datebar"><span class="date" id="dt">—</span><span class="tsbadge" id="ts">SPI-3</span></div>
+  <div class="stage">
+    <canvas id="cv"></canvas>
+    <div class="tip" id="tip"></div>
+    <div class="overlay" id="ov">Caricamento…</div>
+  </div>
+  <div class="legend">
+    <div class="legbar" id="legbar"></div>
+    <div class="legticks" id="legticks"></div>
+    <div class="legends"><span>più secco</span><span>SPI</span><span>più umido</span></div>
+  </div>
+  <div class="controls">
+    <button class="play" id="play" aria-label="play/pausa">❚❚</button>
+    <input id="sl" type="range" min="0" max="0" step="0.01" value="0">
+  </div>
+  <p class="foot" id="foot"></p>
+</div>
+<script>
+/*__TPS__*/
+const META=__META__, DATA="__DATA__";
+const MON=["","gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"];
+const [LO0,LO1,LA0,LA1]=META.crop, KX=META.kx, WG=META.wg, HG=META.hg;
+const NF=META.nF, NS=META.nSta, MINS=META.minSta, VARS=META.vars;
+const VMIN=META.vmin, VMAX=META.vmax, THR=META.thresh, COLS=META.colors;
+const MONTHS_PER_SEC=2;                    // transizioni lente
+// coordinate griglia di valutazione
+const gLon=new Float64Array(WG), gXs=new Float64Array(WG), gLat=new Float64Array(HG);
+for(let c=0;c<WG;c++){gLon[c]=LO0+(c+0.5)*(LO1-LO0)/WG; gXs[c]=gLon[c]*KX;}
+for(let r=0;r<HG;r++) gLat[r]=LA1-(r+0.5)*(LA1-LA0)/HG;
+const SX=META.stations.map(s=>s.lon*KX), SY=META.stations.map(s=>s.lat);
+// LUT grayscale(0..254) -> colore classe
+const RGB=COLS.map(h=>[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)]);
+function clsOf(v){let c=0;for(let i=0;i<THR.length;i++)if(v>=THR[i])c++;return c;}
+const LUT=new Uint8Array(256*3);
+for(let g=0;g<256;g++){const v=VMIN+(g/254)*(VMAX-VMIN),c=RGB[clsOf(v)];
+  LUT[g*3]=c[0];LUT[g*3+1]=c[1];LUT[g*3+2]=c[2];}
+const LANDGRAY=[233,236,233];
+
+let SV=null;                                // Int16Array valori stazione
+const GRID=VARS.map(()=>null);              // GRID[v]=Array(NF) di Uint8Array|null
+const solved=VARS.map(()=>false);
+function sv(v,m,s){return SV[v*NF*NS + m*NS + s];}
+
+// canvas
+const cv=document.getElementById('cv'),ctx=cv.getContext('2d');
+const gcv=document.createElement('canvas');gcv.width=WG;gcv.height=HG;
+const gctx=gcv.getContext('2d');const gimg=gctx.createImageData(WG,HG);
+const scv=document.createElement('canvas');const sctx=scv.getContext('2d',{willReadFrequently:true});
+const fcv=document.createElement('canvas');const fctx=fcv.getContext('2d');
+let dispW=0,dispH=0,fimg=null;
+let pos=0,playing=true,last=0,curVar=0,hoverSta=-1;
+
+async function gunzip(b64){const raw=Uint8Array.from(atob(b64),c=>c.charCodeAt(0));
+  const ds=new DecompressionStream('gzip');
+  const ab=await new Response(new Blob([raw]).stream().pipeThrough(ds)).arrayBuffer();
+  return ab;}
+
+// risolve TPS + valuta griglia per tutti i mesi di una variabile (a blocchi)
+function solveVar(v,done){
+  if(solved[v]){done();return;}
+  const grids=new Array(NF).fill(null); let m=0;
+  const ov=document.getElementById('ov');ov.style.display='grid';
+  function chunk(){
+    const end=Math.min(m+20,NF);
+    for(;m<end;m++){
+      const X=[],Y=[],V=[];
+      for(let s=0;s<NS;s++){const val=sv(v,m,s); if(val!==-32768){X.push(SX[s]);Y.push(SY[s]);V.push(val/100);}}
+      if(X.length<MINS) continue;
+      const {w,poly}=solveTPS(X,Y,V);
+      const gr=new Uint8Array(WG*HG);
+      for(let r=0;r<HG;r++)for(let c=0;c<WG;c++){
+        const val=evalTPS(X,Y,w,poly,gXs[c],gLat[r]);
+        let q=(val-VMIN)/(VMAX-VMIN); q=q<0?0:q>1?1:q;
+        gr[r*WG+c]=Math.round(q*254);}
+      grids[m]=gr;
+    }
+    if(m<NF){ov.textContent='Calcolo superficie… '+Math.round(m/NF*100)+'%';setTimeout(chunk,0);}
+    else{GRID[v]=grids;solved[v]=true;ov.style.display='none';done();}
+  }
+  chunk();
+}
+
+// auto-altezza per l'embed in iframe
+function postH(){try{if(window.parent!==window)
+  parent.postMessage({type:'spi-embed-height',height:Math.ceil(document.body.getBoundingClientRect().height)},'*');}catch(e){}}
+function resize(){const rc=cv.parentElement.getBoundingClientRect();
+  const dpr=Math.min(window.devicePixelRatio||1,1.75);
+  dispW=Math.round(rc.width*dpr);dispH=Math.round(dispW*HG/WG);
+  cv.width=dispW;cv.height=dispH;cv.style.height=(dispW/dpr*HG/WG)+'px';
+  scv.width=dispW;scv.height=dispH;fcv.width=dispW;fcv.height=dispH;
+  fimg=fctx.createImageData(dispW,dispH);
+  ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
+  if(SV&&solved[curVar])draw(pos);
+  postH();}
+
+function pxX(lon){return (lon-LO0)/(LO1-LO0)*dispW;}
+function pxY(lat){return (LA1-lat)/(LA1-LA0)*dispH;}
+function ringPath(rings){const p=new Path2D();for(const ring of rings){
+  for(let i=0;i<ring.length;i++){const x=pxX(ring[i][0]),y=pxY(ring[i][1]);
+    if(i===0)p.moveTo(x,y);else p.lineTo(x,y);}p.closePath();}return p;}
+let coastP=null,provP=null;
+function buildPaths(){coastP=ringPath(META.coast);provP=ringPath(META.prov);}
+
+function draw(p){
+  const gi=Math.min(NF-1,Math.floor(p)),gj=Math.min(NF-1,gi+1),t=p-gi;
+  const GA=GRID[curVar][gi],GB=GRID[curVar][gj];
+  ctx.clearRect(0,0,dispW,dispH);
+  if(!GA&&!GB){ // nessun dato: terra grigia
+    ctx.save();ctx.clip(coastP);ctx.fillStyle='rgb('+LANDGRAY.join(',')+')';
+    ctx.fillRect(0,0,dispW,dispH);ctx.restore();
+  }else{
+    const gd=gimg.data;
+    for(let i=0;i<WG*HG;i++){let g;
+      if(GA&&GB)g=GA[i]+(GB[i]-GA[i])*t; else g=(GA||GB)[i];
+      g=g<0?0:g>254?254:g;const p4=i*4;gd[p4]=gd[p4+1]=gd[p4+2]=g;gd[p4+3]=255;}
+    gctx.putImageData(gimg,0,0);
+    sctx.imageSmoothingEnabled=true;sctx.imageSmoothingQuality='high';
+    sctx.clearRect(0,0,dispW,dispH);sctx.drawImage(gcv,0,0,dispW,dispH);
+    const sd=sctx.getImageData(0,0,dispW,dispH).data, fo=fimg.data;
+    for(let i=0;i<dispW*dispH;i++){const g=sd[i*4],b=g*3,p4=i*4;
+      fo[p4]=LUT[b];fo[p4+1]=LUT[b+1];fo[p4+2]=LUT[b+2];fo[p4+3]=255;}
+    fctx.putImageData(fimg,0,0);
+    ctx.save();ctx.clip(coastP);ctx.drawImage(fcv,0,0);ctx.restore();
+  }
+  // confini
+  ctx.lineJoin=ctx.lineCap='round';
+  ctx.strokeStyle='rgba(60,90,70,.5)';ctx.lineWidth=Math.max(.6,dispW/WG*.16);ctx.stroke(provP);
+  ctx.strokeStyle='rgba(30,70,45,.8)';ctx.lineWidth=Math.max(1,dispW/WG*.3);ctx.stroke(coastP);
+  drawStations();
+  const r=Math.round(p);
+  document.getElementById('dt').textContent=MON[META.months[r]]+' '+META.years[r];
+}
+function drawStations(){const R=Math.max(2.2,dispW/WG*.42);
+  for(let s=0;s<META.stations.length;s++){const x=pxX(META.stations[s].lon),y=pxY(META.stations[s].lat);
+    const hov=(s===hoverSta),r=hov?R*1.8:R;
+    ctx.beginPath();ctx.arc(x,y,r+1.4,0,7);ctx.fillStyle='rgba(255,255,255,.9)';ctx.fill();
+    ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fillStyle=hov?'#0a63c2':'#16324a';ctx.fill();
+    if(hov){ctx.lineWidth=1.6;ctx.strokeStyle='#fff';ctx.stroke();}}
+}
+function tip(mx,my){
+  let best=-1,bd=1e9;
+  for(let s=0;s<META.stations.length;s++){const dx=pxX(META.stations[s].lon)-mx,dy=pxY(META.stations[s].lat)-my;
+    const d=dx*dx+dy*dy;if(d<bd){bd=d;best=s;}}
+  const el=document.getElementById('tip');const dpr=cv.width/cv.getBoundingClientRect().width;
+  if(bd>Math.pow(14*dpr,2)){el.style.opacity=0;if(hoverSta!==-1){hoverSta=-1;draw(pos);}return;}
+  if(best!==hoverSta){hoverSta=best;draw(pos);}
+  const st=META.stations[best];
+  el.innerHTML='<b>'+st.n+'</b>';
+  const rc=cv.getBoundingClientRect();
+  el.style.left=(pxX(st.lon)/dpr)+'px';el.style.top=(pxY(st.lat)/dpr)+'px';el.style.opacity=1;
+}
+
+function setVar(v){[...document.querySelectorAll('.tab')].forEach((t,i)=>t.setAttribute('aria-selected',i==v));
+  document.getElementById('ts').textContent=VARS[v].name;
+  const go=()=>{curVar=v;draw(pos);};
+  if(solved[v])go(); else solveVar(v,go);
+}
+function tick(ts){if(!last)last=ts;const dt=(ts-last)/1000;last=ts;
+  if(playing&&SV&&solved[curVar]){pos+=dt*MONTHS_PER_SEC;if(pos>=NF-1)pos=0;
+    document.getElementById('sl').value=pos;draw(pos);}requestAnimationFrame(tick);}
+
+(async function(){
+  // tabs
+  const tabsEl=document.getElementById('tabs');
+  VARS.forEach((o,i)=>{const b=document.createElement('button');b.className='tab';b.textContent=o.name;
+    b.setAttribute('aria-selected',i===0);b.onclick=()=>{playing&&0;setVar(i);};tabsEl.appendChild(b);});
+  // legenda
+  const lb=document.getElementById('legbar');
+  COLS.forEach(c=>{const s=document.createElement('span');s.style.background=c;lb.appendChild(s);});
+  const lt=document.getElementById('legticks');
+  THR.forEach((t,i)=>{const s=document.createElement('span');s.style.left=((i+1)/13*100)+'%';
+    s.textContent=(''+t).replace('.',',').replace('-','−');lt.appendChild(s);});
+  document.getElementById('foot').textContent="Fonte: SIAS";
+  const sl=document.getElementById('sl');sl.max=NF-1;
+  const btn=document.getElementById('play');
+  btn.onclick=()=>{playing=!playing;btn.textContent=playing?'❚❚':'►';last=0;};
+  sl.oninput=()=>{playing=false;btn.textContent='►';pos=parseFloat(sl.value);if(solved[curVar])draw(pos);};
+  cv.addEventListener('mousemove',e=>{const rc=cv.getBoundingClientRect();const dpr=cv.width/rc.width;
+    tip((e.clientX-rc.left)*dpr,(e.clientY-rc.top)*dpr);});
+  cv.addEventListener('mouseleave',()=>{document.getElementById('tip').style.opacity=0;
+    if(hoverSta!==-1){hoverSta=-1;if(solved[curVar])draw(pos);}});
+  window.addEventListener('resize',()=>{resize();buildPaths();if(solved[curVar])draw(pos);});
+  if(!('DecompressionStream'in window)){document.getElementById('ov').innerHTML=
+    '<span class="err">Browser troppo vecchio per questa animazione.</span>';return;}
+  try{const ab=await gunzip(DATA);SV=new Int16Array(ab);}catch(e){
+    document.getElementById('ov').innerHTML='<span class="err">Errore nel caricamento dei dati.</span>';return;}
+  resize();buildPaths();
+  solveVar(0,()=>{resize();buildPaths();draw(pos);requestAnimationFrame(tick);
+    postH();setTimeout(postH,400);});
+})();
+</script></body></html>
