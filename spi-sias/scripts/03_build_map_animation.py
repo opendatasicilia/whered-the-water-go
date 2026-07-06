@@ -12,7 +12,7 @@ Il core numerico e' scripts/tps_core.js (testato con node in scripts/test_tps.js
 Dipendenze (via uv): numpy scipy shapely pillow
   uv run --with numpy --with scipy --with shapely --with pillow \
       python scripts/04_build_map_animation.py
-Output: output/web/spi_sias_animata.html  (+ scripts/_ref_tps.json, fixture per test_tps.js)
+Output: viz/web/spi_sias_animata.html  (+ scripts/_ref_tps.json, fixture per test_tps.js)
 """
 import os, json, gzip, base64, csv, math
 import numpy as np
@@ -26,8 +26,7 @@ ROOT = os.path.dirname(HERE)
 LONG = os.path.join(ROOT, "data", "spi_sias_long.csv")
 ANAG = os.path.join(ROOT, "data", "anagrafica_stazioni.csv")
 GEOJSON = os.path.join(ROOT, "data", "sicilia_prov.geojson")
-OUTD = os.path.join(ROOT, "output", "web")
-SCRATCH = os.path.dirname(HERE)  # ref json accanto agli script? no: in output
+OUTD = os.path.join(ROOT, "viz", "web")
 os.makedirs(OUTD, exist_ok=True)
 
 CROP_LON = (12.35, 15.72)

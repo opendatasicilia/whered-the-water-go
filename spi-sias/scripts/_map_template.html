@@ -79,7 +79,7 @@ const MON=["","gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","
 const [LO0,LO1,LA0,LA1]=META.crop, KX=META.kx, WG=META.wg, HG=META.hg;
 const NF=META.nF, NS=META.nSta, MINS=META.minSta, VARS=META.vars;
 const VMIN=META.vmin, VMAX=META.vmax, THR=META.thresh, COLS=META.colors;
-const MONTHS_PER_SEC=2;                    // transizioni lente
+const MONTHS_PER_SEC=1.2;                  // transizioni molto lente
 // coordinate griglia di valutazione
 const gLon=new Float64Array(WG), gXs=new Float64Array(WG), gLat=new Float64Array(HG);
 for(let c=0;c<WG;c++){gLon[c]=LO0+(c+0.5)*(LO1-LO0)/WG; gXs[c]=gLon[c]*KX;}

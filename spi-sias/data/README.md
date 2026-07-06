@@ -97,7 +97,7 @@ Serie della media regionale fornita nel file aggregato `SPI_SICILIA_2026-05.xlsx
 - `02_validate.sh` — controlli di qualità sugli output.
 - `crosswalk.csv` — mappa slug-file → nome stazione (input di `02`).
 - `03_build_map_animation.py` — mappa animata SPI spazializzato (HTML autonomo in
-  `../output/web/spi_sias_animata.html`). Spedisce solo i valori mensili delle stazioni
+  `../viz/web/spi_sias_animata.html`). Spedisce solo i valori mensili delle stazioni
   (~150 KB): il browser ricostruisce la superficie con spline a base radiale (kernel
   lineare, più fedele alle mappe SIAS della thin-plate — scelto per confronto deterministico)
   e la disegna classificando per-pixel (bande lisce). Colori/legenda a 13
