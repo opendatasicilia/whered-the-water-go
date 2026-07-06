@@ -13,7 +13,7 @@
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
   .wrap{max-width:780px;margin:0 auto;padding:18px 16px 26px}
   .title{font-size:21px;font-weight:750;letter-spacing:-.015em;margin:0}
-  .sub{font-size:12.5px;color:var(--muted);margin:6px 0 14px;line-height:1.45;max-width:64ch}
+  .sub{font-size:12.5px;color:var(--muted);margin:6px 0 14px;line-height:1.45}
   .tabs{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
   .tab{font-size:12.5px;font-weight:600;padding:7px 14px;border-radius:999px;border:1px solid var(--line);
     background:transparent;color:var(--ink);cursor:pointer;transition:.12s;font-family:inherit}
@@ -140,7 +140,20 @@ function solveVar(v,done){
 // auto-altezza per l'embed in iframe
 function postH(){try{if(window.parent!==window)
   parent.postMessage({type:'spi-embed-height',height:Math.ceil(document.body.getBoundingClientRect().height)},'*');}catch(e){}}
-function resize(){const rc=cv.parentElement.getBoundingClientRect();
+function resize(){
+  // Apertura diretta su DESKTOP (>=720px): ridimensiona il blocco per stare nel viewport,
+  // cosi' il play e' visibile senza scrollare. Su mobile e in iframe non si tocca nulla
+  // (mobile: scroll naturale come prima; iframe: gestito dall'auto-altezza).
+  const wrapEl=document.querySelector('.wrap');
+  wrapEl.style.maxWidth='';                       // reset sempre (default CSS 780px)
+  if(window.self===window.top && window.innerWidth>=720){
+    const otherH=document.body.scrollHeight-cv.getBoundingClientRect().height; // tutto tranne la mappa
+    const budget=window.innerHeight-otherH-8;
+    const contentW=wrapEl.clientWidth-34;
+    if(budget>140 && contentW*HG/WG>budget)
+      wrapEl.style.maxWidth=Math.min(780,Math.floor(budget*WG/HG)+34)+'px';
+  }
+  const rc=cv.parentElement.getBoundingClientRect();
   const dpr=Math.min(window.devicePixelRatio||1,1.75);
   dispW=Math.round(rc.width*dpr);dispH=Math.round(dispW*HG/WG);
   cv.width=dispW;cv.height=dispH;cv.style.height=(dispW/dpr*HG/WG)+'px';
