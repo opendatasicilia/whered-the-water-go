@@ -104,6 +104,22 @@ Serie della media regionale fornita nel file aggregato `SPI_SICILIA_2026-05.xlsx
   classi della mappa ufficiale SPI-3. Deps via uv (numpy scipy shapely pillow).
 - `tps_core.js` — core spline in JS (incluso nell'HTML), verificato vs scipy da `test_tps.js` (node).
 - `_map_template.html` — template dell'HTML animato.
+- `04_build_kriging_collage.py` — collage di confronto 3 colonne × 5 righe (SPI-3/6/12/24/48)
+  per un singolo mese (2026-05): **mappe ufficiali SIAS** | **ricostruzione spline lineare**
+  (stesso metodo di `03`) | **ricostruzione kriging** (ordinary kriging / BLUP via `pykrige`:
+  variogramma **esponenziale climatologico**). Il variogramma **non** è stimato dal singolo mese
+  (troppo rumoroso: 95 punti, range auto-fit instabile fra 20 e 540 km) ma dalla **semivarianza
+  sperimentale accumulata su tutta la serie 1991–2026** (~380–420 mesi per scala) — l'approccio
+  standard per il drought mapping. Range esponenziale fisso a un valore fisico (60 km), nugget
+  stimato dai dati; solo lag < ~metà del dominio nel fit. Impostazione **validata via
+  cross-validation leave-one-out** sul mese target: R² ≥ spline, superfici che mantengono struttura,
+  errori standardizzati con dev. std ~1.0 (kriging ben calibrato). Nota: essendo un BLUP con nugget,
+  il kriging **filtra** la variabilità a micro-scala e quindi **non riproduce esattamente** il valore
+  alla stazione — a differenza dello spline che è un interpolatore esatto: è il comportamento corretto.
+  Le due ricostruzioni condividono dati stazione, palette a 13 classi,
+  crop, clip alla costa e confini: l'unica differenza è il metodo di interpolazione. Output in
+  `../viz/raster/collage_sias_spline_kriging_2026-05.png`. Le immagini ufficiali stanno in
+  `../viz/official_sias/spi{3,6,12,24,48}_2026-05.jpg` (scaricate dalle mappe pubblicate SIAS).
 
 ## Verifica
 La corrispondenza `station_slug → station` è stata validata confrontando i valori

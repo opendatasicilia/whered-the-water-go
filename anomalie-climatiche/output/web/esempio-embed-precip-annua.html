@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Esempio embed — Pioggia annua in Sicilia</title>
+  <style>
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      max-width:760px;margin:40px auto;padding:0 16px;color:#1d2630;line-height:1.5}
+    h1{font-size:22px}
+    p{color:#4a5560}
+    code{background:#f0f2f4;padding:1px 5px;border-radius:4px;font-size:13px}
+  </style>
+</head>
+<body>
+  <h1>Esempio di pagina che incorpora la mappa</h1>
+  <p>Qui sotto la mappa è inserita con un semplice <code>&lt;iframe&gt;</code>.
+     L'altezza si adatta da sola grazie a un piccolo script (vedi sorgente di questa pagina).</p>
+
+  <!-- ▼▼▼ QUESTO è il codice da copiare nella tua pagina/articolo ▼▼▼ -->
+  <iframe id="mappaPioggiaAnnua"
+    src="precipitazione-annua-sicilia.html"
+    title="Quanta pioggia cade in Sicilia (1951–2024)"
+    style="width:100%;max-width:680px;height:720px;border:0;display:block;margin:auto"
+    loading="lazy"
+    sandbox="allow-scripts allow-same-origin"></iframe>
+
+  <script>
+    // Il widget comunica da solo la propria altezza: qui la applichiamo all'iframe.
+    window.addEventListener('message', function(e){
+      if(e.data && e.data.type === 'sicilia-embed-height'){
+        var f = document.getElementById('mappaPioggiaAnnua');
+        if(f) f.style.height = e.data.height + 'px';
+      }
+    });
+  </script>
+  <!-- ▲▲▲ fine codice da copiare ▲▲▲ -->
+
+  <p style="margin-top:28px">
+    Quando la ospiterai su GitHub Pages, sostituisci l'attributo <code>src</code> con
+    l'URL pubblico del file, per esempio<br>
+    <code>src="https://tuo-utente.github.io/tuo-repo/precipitazione-annua-sicilia.html"</code>.
+  </p>
+</body>
+</html>
